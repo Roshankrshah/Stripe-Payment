@@ -4,14 +4,14 @@ require('express-async-errors');
 const express = require('express');
 const app = express();
 
+const stripeController = require('./controllers/stripeController');
+
 const notFound = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler');
 
 app.use(express.json());
 
-app.get('/',(req,res)=>{
-    res.send('Stripe Payment');
-})
+app.post('/stripe',stripeController);
 
 app.use(notFound);
 app.use(errorHandlerMiddleware);
