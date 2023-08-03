@@ -9,9 +9,8 @@ const stripeController = async (req,res)=>{
 
     const paymentIntent = await stripe.paymentIntents.create({
         amount: calculateOrderAmount(),
-        currency: 'usd',
+        currency: 'inr',
     })
-
     res.json({clientSecret:paymentIntent.client_secret})
 };
 

@@ -13,6 +13,7 @@ var stripe = Stripe(
 
 // Disable the button until we have Stripe set up on the page
 document.querySelector('button').disabled = true;
+
 fetch('/stripe', {
     method: 'POST',
     headers: {
@@ -24,6 +25,7 @@ fetch('/stripe', {
         return result.json();
     })
     .then(function (data) {
+        console.log(data);
         var elements = stripe.elements();
 
         var style = {
